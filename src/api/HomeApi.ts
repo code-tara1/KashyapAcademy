@@ -62,11 +62,64 @@ const useFetchFacility = () => {
     select: (response) => response?.data?.data,
   });
 };
+const fetchTeam = () => {
+  return HttpClient.get(HomeApi.getTeam);
+};
+
+const useFetchTeam = () => {
+  return useQuery([HomeApi.getTeam], fetchTeam, {
+    select: (response) => response?.data?.data,
+  });
+};
+
+const fetchBlog = () => {
+  return HttpClient.get(HomeApi.getBlog);
+};
+
+const useFetchBlog = () => {
+  return useQuery([HomeApi.getBlog], fetchBlog, {
+    select: (response) => response?.data?.data,
+  });
+};
+
+const fetchTestimonial = () => {
+  return HttpClient.get(HomeApi.getTestimonial);
+};
+
+const useFetchTestimonial = () => {
+  return useQuery([HomeApi.getTestimonial], fetchTestimonial, {
+    select: (response) => response?.data?.data,
+  });
+};
+
+const fetchGallery = () => {
+  return HttpClient.get(HomeApi.getGallery);
+};
+
+const useFetchGallery = () => {
+  return useQuery([HomeApi.getGallery], fetchGallery, {
+    select: (response) => response?.data?.data,
+  });
+};
+const fetchEvent = () => {
+  return HttpClient.get(HomeApi.getEvent);
+};
+
+const useFetchEvent = () => {
+  return useQuery([HomeApi.getEvent], fetchEvent, {
+    select: (response) => response?.data?.data,
+  });
+};
 
 export {
+  useFetchBlog,
+  useFetchEvent,
   useFetchFacility,
   useFetchFaculty,
+  useFetchGallery,
   useFetchHomeContent,
   useFetchServices,
   useFetchStatistics,
+  useFetchTeam,
+  useFetchTestimonial,
 };

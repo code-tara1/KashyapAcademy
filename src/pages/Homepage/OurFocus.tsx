@@ -19,11 +19,11 @@ export const OurFocus = () => {
         >
           Our Focus
         </Heading>
-        <Flex gap={10} flexWrap={"wrap"} justify={"center"}>
+        <Flex gap={{ base: 4, md: 10 }} flexWrap={"wrap"} justify={"center"}>
           {focusData.map(({ id, title, description, icon }) => (
             <Card
               role="group"
-              flexBasis={{ base: "100%", sm: "48%", lg: "30%" }}
+              flexBasis={{ base: "100%", sm: "45%", lg: "30%" }}
               borderRadius={0}
               key={id}
               variant={"normal"}

@@ -42,6 +42,7 @@ export const Navbar = () => {
               <Link
                 fontSize={{ base: "14px", md: "16px" }}
                 as={NavLink}
+                reloadDocument
                 key={id}
                 _hover={{
                   textDecoration: "none",
@@ -75,6 +76,7 @@ export const Navbar = () => {
                 fontSize={"20px"}
                 as={NavLink}
                 key={id}
+                reloadDocument
                 _hover={{ textDecoration: "none" }}
                 _activeLink={{
                   borderBottom:

@@ -1,12 +1,17 @@
 import { Flex } from "@chakra-ui/react";
+import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
+import { Footer } from "../component/Footer";
 import { Navbar } from "../component/Navbar";
 
-export const SchoolLayout = () => {
+export default function SchoolLayout() {
   return (
     <Flex flexDir={"column"}>
       <Navbar />
-      <Outlet />
+      <Suspense fallback="loading...">
+        <Outlet />
+      </Suspense>
+      <Footer />
     </Flex>
   );
-};
+}

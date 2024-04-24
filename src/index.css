@@ -1,5 +1,10 @@
+:root {
+  --swiper-navigation-size: 16px;
+  --swiper-theme-color: black;
+}
+
 .swiper-wrapper {
-  padding: 40px 0px 40px 0px;
+  padding: 40px 0px 50px 0px;
 }
 
 .swiper-pagination {
@@ -9,7 +14,28 @@
 .swiper-activities {
   display: flex;
   justify-content: center;
-  justify-items: flex-end;
+  align-items: center;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: var(--swiper-navigation-top-offset, 50%);
+  width: calc(var(--swiper-navigation-size) / 44 * 27);
+  height: var(--swiper-navigation-size);
+  margin-top: calc(0px - (var(--swiper-navigation-size) / 2));
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  color: #7c7ba1;
+  font-weight: 700;
+  background-color: #f6f6f6;
+  padding: 6px 9px;
+  border-radius: 50%;
 }
 
 .swiper-pagination-bullet {

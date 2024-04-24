@@ -1,120 +1,110 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   Box,
   Card,
+  CardFooter,
+  CardHeader,
   Container,
-  Flex,
+  HStack,
+  Heading,
   Image,
   Stack,
   Text,
 } from "@chakra-ui/react";
-import Guru1 from "../../assets/Guru1.png";
-import { FlowerIcon, FlowerIcon2, QuoteIcon } from "../../assets/icons";
-import { messageData } from "./data";
-
+import { SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
+import { useFetchTestimonial } from "../../api/HomeApi";
+import TestimonialBanner from "../../assets/Banner/Testimonial.png";
+import { Slider } from "../../component/Slider";
 export const TestimonialSection = () => {
+  const { data } = useFetchTestimonial();
+  const breakpoints = {
+    0: {
+      slidesPerView: 1,
+    },
+    550: {
+      slidesPerView: 2,
+    },
+    1050: {
+      slidesPerView: 3,
+    },
+  };
   return (
-    <Container maxW={{ base: "95vw", md: "90vw", lg: "80vw" }} py={10}>
-      {messageData.map(({ id, name, designation, message, image }) => (
-        <Card
-          overflow={"hidden"}
-          bgColor={"#E1DCDC"}
-          borderRadius={"20px"}
-          key={id}
-          pos={"relative"}
+    <Box
+      bg={`url(${TestimonialBanner})`}
+      bgSize={"cover"}
+      bgRepeat={"no-repeat"}
+      bgPos={"center"}
+      py={{ base: 1, md: 10 }}
+    >
+      <Container maxW={{ base: "99vw", md: "90vw", lg: "80vw" }} p={10}>
+        <Box>
+          <Heading size={{ base: "md", md: "lg", lg: "xl" }} mb={2}>
+            Testimonials
+          </Heading>
+        </Box>
+        <Slider
+          noOfSlides={3}
+          speed={1000}
+          loop={true}
+          space={10}
+          breakpoints={breakpoints}
         >
-          <Container
-            maxW={{ base: "100vw", md: "container.xl" }}
-            py={5}
-            zIndex={2}
-          >
-            <Flex
-              flexWrap={{ base: "wrap", md: "nowrap" }}
-              gap={{ base: 0, lg: 12 }}
-              pt={5}
-              align={"center"}
-            >
-              <Box pos={"relative"}>
-                <Image
-                  src={image}
-                  w={{ base: 200, md: 500, lg: 400 }}
-                  h={{ base: 200, md: 250, lg: 300 }}
-                  alt={name}
-                  zIndex={1000}
-                />
-                <Image
-                  src={Guru1}
-                  w={{ base: 200, md: 500, lg: 350 }}
-                  h={{ base: 200, md: 250, lg: 300 }}
-                  alt={name}
-                  pos={"absolute"}
-                  top={0}
-                  left={4}
-                  zIndex={-2}
-                />
-              </Box>
-              <Flex gap={4} align={"start"} pt={5}>
-                <Box
-                  w={{ md: 50, lg: 100 }}
-                  h={{ md: 50, lg: 100 }}
-                  display={{ base: "none", md: "block" }}
-                >
-                  <QuoteIcon />
-                </Box>
-                <Flex
-                  flexDir={"column"}
-                  gap={2}
-                  w={{ base: "100%", md: "70%" }}
+          {data?.map(({ id, name, designation, description, image }: any) => (
+            <SwiperSlide key={id} className="swiper-items swiper-activities">
+              <Card
+                role="group"
+                shadow={"none"}
+                w={{ base: "250px", md: "350px", lg: "400px" }}
+                h={"250px"}
+                overflow={"hidden"}
+              >
+                <CardHeader
+                  h={200}
+                  alignContent={"center"}
+                  textAlign={"center"}
                 >
                   <Text
-                    textColor={"#5F6D7E"}
-                    fontSize={{
-                      base: "16px",
-                      sm: "18px",
-                      md: "20px",
-                    }}
+                    noOfLines={4}
+                    fontSize={{ base: "16px", md: "18px" }}
+                    mt={2}
                   >
-                    {message}
+                    {description}
                   </Text>
-                  <Stack gap={0}>
-                    <Text
-                      textColor={"#5F6D7E"}
-                      fontWeight={600}
-                      fontSize={{
-                        base: "18px",
-                        sm: "20px",
-                        md: "22px",
-                        lg: "24px",
-                      }}
-                    >
-                      {name}
-                    </Text>
-                    <Text
-                      textColor={"#5F6D7E"}
-                      fontSize={{
-                        base: "16px",
-                        md: "20px",
-                      }}
-                    >
-                      {designation}
-                    </Text>
-                  </Stack>
-                </Flex>
-              </Flex>
-            </Flex>
-          </Container>
-          <Box
-            opacity={{ base: 0.6, md: 1 }}
-            pos={"absolute"}
-            bottom={0}
-            right={-10}
-          >
-            <FlowerIcon />
-          </Box>
-          <Box opacity={{ base: 0.6, md: 1 }} pos={"absolute"} top={0} left={0}>
-            <FlowerIcon2 />
-          </Box>
-        </Card>
-      ))}
-    </Container>
+                </CardHeader>
+                <CardFooter alignSelf={"center"}>
+                  <HStack align={"center"} gap={4}>
+                    <Image
+                      w={12}
+                      src={`http://127.0.0.1:8000${image}`}
+                      borderRadius={"full"}
+                      alt={name}
+                    />
+                    <Stack gap={0} textAlign={"center"}>
+                      <Text
+                        fontSize={{
+                          base: "14px",
+                          md: "16px",
+                        }}
+                        fontWeight={700}
+                      >
+                        {name}
+                      </Text>
+                      <Text
+                        textColor={"#737373"}
+                        fontSize={"12px"}
+                        fontWeight={400}
+                      >
+                        {designation}
+                      </Text>
+                    </Stack>
+                  </HStack>
+                </CardFooter>
+              </Card>
+            </SwiperSlide>
+          ))}
+        </Slider>
+      </Container>
+    </Box>
   );
 };

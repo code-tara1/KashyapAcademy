@@ -1,6 +1,6 @@
 import { Banner } from "../../component/Banner";
 
-export const AboutUs = () => {
+export default function AboutUs() {
   return (
     <Banner
       image={""}
@@ -8,4 +8,4 @@ export const AboutUs = () => {
       subtitle={"We are the best school in the world"}
     />
   );
-};
+}

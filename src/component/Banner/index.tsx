@@ -3,7 +3,7 @@ import { Box, Flex, Stack, Text } from "@chakra-ui/react";
 type BannerProps = {
   image: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
 };
 
 export const Banner = ({ image, title, subtitle }: BannerProps) => {
@@ -12,7 +12,7 @@ export const Banner = ({ image, title, subtitle }: BannerProps) => {
       bg={`url(${image})`}
       h={{ base: "200px", md: "400px", lg: "600px" }}
       bgSize={"cover"}
-      // bgPosition={"center"}
+      bgPosition={"center"}
       bgRepeat={"no-repeat"}
       p={4}
     >

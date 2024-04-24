@@ -23,5 +23,6 @@ export const ButtonStyle = {
     _hover: {
       bg: "transparent",
     },
+    padding: 0,
   },
 };

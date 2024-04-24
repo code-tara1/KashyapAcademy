@@ -1,6 +1,6 @@
 import Guru from "../../../assets/Guru.png";
 import {
-  LighIcon,
+  LightIcon,
   MeditationIcon,
   MicroscopeIcon,
   ScienceIcon,
@@ -65,6 +65,6 @@ export const focusData = [
     title: "Entrepreneurship",
     description:
       "The gradual immision of the wol accumulation of dvfsdvs dfsd AS information about dfsdfb dfbdf d",
-    icon: <LighIcon boxSize={{ base: 12, md: 16 }} />,
+    icon: <LightIcon boxSize={{ base: 12, md: 16 }} />,
   },
 ];

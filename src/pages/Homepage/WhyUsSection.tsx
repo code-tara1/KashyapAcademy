@@ -4,10 +4,10 @@ import {
   Flex,
   GridItem,
   Heading,
-  Image,
   SimpleGrid,
   Text,
 } from "@chakra-ui/react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useLocation } from "react-router-dom";
 import { useFetchStatistics } from "../../api/HomeApi";
 import StatsBanner from "../../assets/Banner/Stats.png";
@@ -31,7 +31,7 @@ export const WhyUsSection = () => {
           justifyItems={"center"}
         >
           <GridItem colSpan={1}>
-            <Image
+            <LazyLoadImage
               src={path === "school" ? SchoolImage : CollegeImage}
               alt="School"
             />

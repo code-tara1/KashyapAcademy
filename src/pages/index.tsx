@@ -1,9 +1,8 @@
 import { GridItem, SimpleGrid } from "@chakra-ui/react";
-
 import { HomeCollege } from "./College";
 import { HomeSchool } from "./School";
 
-export const Home = () => {
+export default function Home() {
   return (
     <SimpleGrid columns={{ base: 1, md: 2 }}>
       <GridItem colSpan={1}>
@@ -14,4 +13,4 @@ export const Home = () => {
       </GridItem>
     </SimpleGrid>
   );
-};
+}
