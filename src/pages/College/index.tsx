@@ -29,8 +29,8 @@ export const HomeCollege = () => {
           opacity={{ base: 1, md: 0 }}
           _groupHover={{ opacity: 1 }}
           as={Link}
-          to={"/college"}
           reloadDocument
+          to={"/college/"}
           variant={"primary"}
           borderRadius={"5px"}
           rightIcon={<ChevronRightIcon fontSize={"xl"} />}

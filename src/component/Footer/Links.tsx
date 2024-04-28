@@ -40,7 +40,6 @@ export const Links = () => {
             _hover={{ color: "#000", textDecoration: "none", fontWeight: 500 }}
             fontSize={{ base: "16px", md: "18px" }}
             as={NavLink}
-            reloadDocument
             to={`/${path}/${link.to}`}
             key={link.id}
           >

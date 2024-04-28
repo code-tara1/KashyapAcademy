@@ -63,7 +63,7 @@ export const Footer = () => {
               as={NavLink}
               to={"https://www.codetara.com"}
             >
-              Code Tara{" "}
+              Code Tara
             </Link>
           </Text>
         </Stack>

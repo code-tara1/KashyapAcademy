@@ -15,6 +15,7 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import { useFetchEvent } from "../../api/HomeApi";
+import { BaseURL } from "../../api/axiosSetup";
 import EventBanner from "../../assets/Banner/Events.png";
 import { CalendarIcon, PinIcon } from "../../assets/icons";
 
@@ -65,7 +66,7 @@ export const UpcomingEvents = () => {
                   >
                     <Box
                       h={"full"}
-                      bg={`url(http://127.0.0.1:8000${event.image})`}
+                      bg={`url(${BaseURL}/${event.image})`}
                       bgSize={"cover"}
                       bgRepeat={"no-repeat"}
                       bgPos={"center"}
@@ -129,7 +130,7 @@ export const UpcomingEvents = () => {
                 >
                   <Box
                     h={"full"}
-                    bg={`url(http://127.0.0.1:8000${event.image})`}
+                    bg={`url(${BaseURL}${event.image})`}
                     bgSize={"cover"}
                     bgPos={"center"}
                     bgRepeat={"no-repeat"}

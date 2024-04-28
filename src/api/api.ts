@@ -14,3 +14,24 @@ export const HomeApi = {
 export const TeamApi = {
   getTeams: "/team",
 };
+
+export const SchoolApi = {
+  getSchools: "/school",
+};
+
+export const MessageApi = {
+  sendMessage: "/message",
+};
+
+export const BlogApi = {
+  getBlogs: "/blog",
+  getBlogById: "/blog/:id",
+};
+
+export const FacultyApi = {
+  getFaculty: "/faculty/:id",
+};
+
+export const CourseMenuApi = {
+  getCourseMenu: "/course_menu_items",
+};

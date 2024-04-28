@@ -1,15 +1,26 @@
-import { Box, Card, Container, Flex, Heading, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Card,
+  Container,
+  Flex,
+  Heading,
+  Image,
+  Text,
+} from "@chakra-ui/react";
 import FocusBanner from "../../assets/Banner/Focus.png";
 import { focusData } from "./data";
 export const OurFocus = () => {
   return (
-    <Box
-      bg={`url(${FocusBanner})`}
-      bgSize="cover"
-      bgPos="center"
-      bgRepeat="no-repeat"
-      py={10}
-    >
+    <Box py={10} pos={"relative"}>
+      <Image
+        src={FocusBanner}
+        loading="lazy"
+        alt="Focus Banner"
+        objectFit={"cover"}
+        objectPosition={"center"}
+        w={"100%"}
+        h={"100%"}
+      />
       <Container maxW={{ base: "95vw", md: "90vw", lg: "80vw" }} py={10}>
         <Heading
           textColor={"white"}

@@ -41,23 +41,35 @@ export const TextInput = ({
         control={control}
         render={({ field: { onChange, value } }) => (
           <InputGroup>
-            <InputLeftElement pointerEvents="none">{leftIcon}</InputLeftElement>
+            {leftIcon && (
+              <InputLeftElement pointerEvents="none">
+                {leftIcon}
+              </InputLeftElement>
+            )}
             {type === "textarea" ? (
               <Textarea
+                border={"1px solid"}
+                focusBorderColor={"primary.100"}
+                borderRadius={0}
+                borderColor={errors[name] ? "red.500" : "#D6D6D6"}
                 placeholder={placeholder}
                 onChange={onChange}
                 value={value}
               />
             ) : (
               <Input
+                h={"52px"}
+                border={"1px solid"}
+                focusBorderColor={"primary.100"}
+                borderRadius={0}
+                borderColor={errors[name] ? "red.500" : "#D6D6D6"}
                 type={type}
                 placeholder={placeholder}
                 onChange={onChange}
                 value={value}
               />
             )}
-
-            <InputRightElement>{rightIcon}</InputRightElement>
+            {rightIcon && <InputRightElement>{rightIcon}</InputRightElement>}
           </InputGroup>
         )}
       />

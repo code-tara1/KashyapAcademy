@@ -1,21 +1,23 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
-  Badge,
   Button,
   Container,
   Flex,
   GridItem,
-  HStack,
   Heading,
   SimpleGrid,
   Text,
 } from "@chakra-ui/react";
 import LazyLoad from "react-lazyload";
+import { NavLink, useLocation } from "react-router-dom";
 import { useFetchFaculty } from "../../api/HomeApi";
+import { BaseURL } from "../../api/axiosSetup";
 import { FacultyData } from "../../utils/DataTypes";
 
 export const FacultySection = () => {
   const { data } = useFetchFaculty();
+  const location = useLocation();
+  const path = location.pathname.split("/")[1];
 
   return (
     <LazyLoad offset={100}>
@@ -29,13 +31,13 @@ export const FacultySection = () => {
           alignItems={"center"}
           justifyItems={"center"}
         >
-          {data?.map(({ id, title, icon, courses }: FacultyData) => (
-            <GridItem key={id} colSpan={1} w={"full"}>
+          {data?.map(({ id, title, icon }: FacultyData) => (
+            <GridItem key={id} colSpan={1} w={"80%"}>
               <Flex
                 role="group"
-                bg={`url(http://127.0.0.1:8000${icon})`}
+                bg={`url(${BaseURL}/${icon})`}
                 _hover={{
-                  bg: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.40) 100%), url(http://127.0.0.1:8000${icon}) no-repeat top center/cover`,
+                  bg: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.40) 100%), url(${BaseURL}/${icon}) no-repeat top center/cover`,
                 }}
                 bgSize={"cover"}
                 bgPos={"top"}
@@ -59,50 +61,28 @@ export const FacultySection = () => {
                     md: "26px",
                     lg: "28px",
                   }}
+                  opacity={0}
+                  transition={"opacity 0.3s"}
+                  _groupHover={{ opacity: 1 }}
                 >
                   {title}
                 </Text>
 
                 <Button
-                  _groupHover={{ variant: "secondary" }}
+                  as={NavLink}
+                  to={`/${path}/course/${id}`}
+                  _groupHover={{ bgColor: "secondary.500" }}
                   pos={"absolute"}
                   top={0}
                   right={4}
-                  variant={"primary"}
+                  textColor={"white"}
+                  bgColor={"primary.500"}
                   size={"sm"}
                   borderRadius={"5px"}
                   mt={4}
                 >
-                  Our Courses
+                  View Courses
                 </Button>
-                <HStack
-                  gap={2}
-                  pos={"absolute"}
-                  bottom={5}
-                  left={0}
-                  overflow={"wrap"}
-                >
-                  {courses?.map(({ id, title }: any, index: number) => (
-                    <Badge
-                      variant={"normal"}
-                      borderRadius={"5px"}
-                      w={"100px"}
-                      textOverflow={"clip"}
-                      bg={
-                        index === 0
-                          ? "red.400"
-                          : index === 1
-                          ? "blue.400"
-                          : index === 2
-                          ? "green.400"
-                          : "yellow.400"
-                      }
-                      key={id}
-                    >
-                      {title}
-                    </Badge>
-                  ))}
-                </HStack>
               </Flex>
             </GridItem>
           ))}

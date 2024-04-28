@@ -2,6 +2,7 @@ import { Flex } from "@chakra-ui/react";
 import TeamBanner from "../../assets/Banner/OurTeam.png";
 import { Banner } from "../../component/Banner";
 import { Teams } from "./Teams";
+
 export const OurTeam = () => {
   return (
     <Flex flexDir={"column"}>

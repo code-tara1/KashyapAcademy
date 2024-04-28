@@ -1,21 +1,36 @@
-import { Box, Flex, Stack, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, Stack, Text } from "@chakra-ui/react";
 
 type BannerProps = {
   image: string;
-  title: string;
+  bg?: string;
+  title?: string;
   subtitle?: string;
 };
 
-export const Banner = ({ image, title, subtitle }: BannerProps) => {
+export const Banner = ({ image, title, subtitle, bg }: BannerProps) => {
   return (
     <Box
-      bg={`url(${image})`}
-      h={{ base: "200px", md: "400px", lg: "600px" }}
-      bgSize={"cover"}
+      bg={
+        bg
+          ? `linear-gradient(180deg, rgba(98, 195, 0, 0.40) 0%, rgba(255, 111, 6, 0.40) 100%)`
+          : ``
+      }
+      h={{ base: "200px", md: "400px", lg: "500px" }}
       bgPosition={"center"}
-      bgRepeat={"no-repeat"}
       p={4}
+      pos={"relative"}
     >
+      <Image
+        src={image}
+        loading="lazy"
+        pos={"absolute"}
+        objectFit={"cover"}
+        objectPosition={"top"}
+        w={"100%"}
+        top={0}
+        left={0}
+        h={"100%"}
+      />
       <Flex h={"100%"} justify={"center"} align={"center"} color={"white"}>
         <Stack align={"center"}>
           <Text

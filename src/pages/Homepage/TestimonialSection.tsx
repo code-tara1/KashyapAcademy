@@ -14,6 +14,7 @@ import {
 import { SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import { useFetchTestimonial } from "../../api/HomeApi";
+import { BaseURL } from "../../api/axiosSetup";
 import TestimonialBanner from "../../assets/Banner/Testimonial.png";
 import { Slider } from "../../component/Slider";
 export const TestimonialSection = () => {
@@ -76,7 +77,7 @@ export const TestimonialSection = () => {
                   <HStack align={"center"} gap={4}>
                     <Image
                       w={12}
-                      src={`http://127.0.0.1:8000${image}`}
+                      src={`${BaseURL}/${image}`}
                       borderRadius={"full"}
                       alt={name}
                     />

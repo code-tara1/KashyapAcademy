@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import LazyLoad from "react-lazyload";
 import { useFetchBlog } from "../../api/HomeApi";
+import { BaseURL } from "../../api/axiosSetup";
 
 export const BlogSection = () => {
   const { data } = useFetchBlog();
@@ -53,7 +54,7 @@ export const BlogSection = () => {
                         w={"full"}
                         h={"full"}
                         borderRadius={10}
-                        src={`http://127.0.0.1:8000/storage/${blog.image}`}
+                        src={`${BaseURL}/${blog.image}`}
                         alt={blog.title}
                       />
                     </CardHeader>

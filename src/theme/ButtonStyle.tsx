@@ -7,22 +7,28 @@ export const ButtonStyle = {
         bg: "primary.600",
       },
       borderRadius: 0,
+      isLoading: {
+        bg: "primary.400",
+        _hover: {
+          bg: "primary.400",
+        },
+      },
     },
-  },
-  secondary: {
-    bg: "secondary.500",
-    color: "white",
-    _hover: {
-      bg: "secondary.600",
+    secondary: {
+      bg: "secondary.500",
+      color: "white",
+      _hover: {
+        bg: "secondary.600",
+      },
+      borderRadius: 0,
     },
-    borderRadius: 0,
-  },
-  transparent: {
-    bg: "transparent",
-    color: "primary.500",
-    _hover: {
+    transparent: {
       bg: "transparent",
+      color: "primary.500",
+      _hover: {
+        bg: "transparent",
+      },
+      padding: 0,
     },
-    padding: 0,
   },
 };

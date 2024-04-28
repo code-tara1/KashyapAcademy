@@ -1,69 +1,46 @@
-import { Suspense, lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { CollegeLayout } from "./layout/CollegeLayout";
-import { Contact } from "./pages/Contact";
-import HomePage from "./pages/Homepage";
-import LoadingScreen from "./pages/Loading";
-import { OurTeam } from "./pages/OurTeam";
-const LazyEvent = lazy(() => import("./pages/Events"));
-const LazyAbout = lazy(() => import("./pages/About"));
-const Home = lazy(() => import("./pages/"));
-const LazySchoolLayout = lazy(() => import("./layout/SchoolLayout"));
+import SchoolLayout from "../src/layout/SchoolLayout";
+import AboutUs from "../src/pages/About";
+import { Blogs } from "../src/pages/Blogs";
+import { BlogDetail } from "../src/pages/Blogs/BlogDetail";
+import { Contact } from "../src/pages/Contact";
+import { Course } from "../src/pages/Course";
+import Events from "../src/pages/Events";
+import { Gallery } from "../src/pages/Gallery";
+import { GalleryDetail } from "../src/pages/Gallery/GalleryDetail";
+import HomePage from "../src/pages/Homepage";
+import { OurTeam } from "../src/pages/OurTeam";
+
 export const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="loading" element={<LoadingScreen />} />
-        <Route
-          path="school"
-          element={
-            <Suspense fallback={<LoadingScreen />}>
-              <LazySchoolLayout />
-            </Suspense>
-          }
-        >
+        {/* <Route path="/" element={<Home />} /> */}
+        {/* school layout */}
+        <Route path={`school/`} element={<SchoolLayout />}>
           <Route index element={<HomePage />} />
-          <Route
-            path="about"
-            element={
-              <Suspense fallback={<LoadingScreen />}>
-                <LazyAbout />
-              </Suspense>
-            }
-          />
-          <Route path="contact" element={<Contact />} />
-          <Route
-            path="events"
-            element={
-              <Suspense fallback="loading...">
-                <LazyEvent />
-              </Suspense>
-            }
-          />
-          <Route path="our-team" element={<OurTeam />} />
+          <Route path={`about`} element={<AboutUs />} />
+          <Route path={`events`} element={<Events />} />
+          <Route path={`contact`} element={<Contact />} />
+          <Route path={`blogs`} element={<Blogs />} />
+          <Route path={`blogs/:id`} element={<BlogDetail />} />
+          <Route path={`gallery`} element={<Gallery />} />
+          <Route path={`gallery/:id`} element={<GalleryDetail />} />
+          <Route path={`course`} element={<Course />} />
+          <Route path={`our-team`} element={<OurTeam />} />
         </Route>
-        <Route path="college" element={<CollegeLayout />}>
-          <Route
-            index
-            element={
-              <Suspense fallback={<LoadingScreen />}>
-                <Home />
-              </Suspense>
-            }
-          />
-          <Route
-            path="about"
-            element={
-              <Suspense fallback={<LoadingScreen />}>
-                <LazyAbout />
-              </Suspense>
-            }
-          />
-          <Route path="contact" element={<Contact />} />
-          <Route path="events" element={<LazyEvent />} />
-
-          <Route path="our-team" element={<OurTeam />} />
+        {/* college layout */}
+        <Route path={`college/`} element={<SchoolLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path={`about`} element={<AboutUs />} />
+          <Route path={`events`} element={<Events />} />
+          <Route path={`contact`} element={<Contact />} />
+          <Route path={`blogs`} element={<Blogs />} />
+          <Route path={`blogs/:id`} element={<BlogDetail />} />
+          <Route path={`gallery`} element={<Gallery />} />
+          <Route path={`gallery/:id`} element={<GalleryDetail />} />
+          <Route path={`course`} element={<Course />} />
+          <Route path={`our-team`} element={<OurTeam />} />
         </Route>
       </Routes>
     </BrowserRouter>

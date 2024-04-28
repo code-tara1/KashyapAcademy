@@ -12,7 +12,24 @@ export const navItems = [
   {
     id: 3,
     name: "Course",
-    to: "courses",
+    to: "course",
+    sublinks: [
+      {
+        id: 1,
+        name: "Science",
+        to: "course/science",
+      },
+      {
+        id: 2,
+        name: "Management",
+        to: "course/management",
+      },
+      {
+        id: 3,
+        name: "Law",
+        to: "course/law",
+      },
+    ],
   },
   {
     id: 4,
@@ -27,7 +44,7 @@ export const navItems = [
   {
     id: 6,
     name: "Blog",
-    to: "blog",
+    to: "blogs",
   },
   {
     id: 7,

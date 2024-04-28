@@ -15,7 +15,7 @@ const useFetchHomeContent = (institution: string) => {
     [HomeApi.getByInstitution],
     () => fetchHomeContent(institution),
     {
-      select: (response) => response?.data?.data.home_content,
+      select: (response) => response?.data?.data.home_contents,
       onError: (error: AxiosError) => {
         toast.error(error?.message);
       },
@@ -72,12 +72,12 @@ const useFetchTeam = () => {
   });
 };
 
-const fetchBlog = () => {
+const fetchBlogs = () => {
   return HttpClient.get(HomeApi.getBlog);
 };
 
 const useFetchBlog = () => {
-  return useQuery([HomeApi.getBlog], fetchBlog, {
+  return useQuery([HomeApi.getBlog], fetchBlogs, {
     select: (response) => response?.data?.data,
   });
 };

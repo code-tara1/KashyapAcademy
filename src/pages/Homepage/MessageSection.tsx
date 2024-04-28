@@ -36,20 +36,21 @@ export const MessageSection = () => {
               <Box pos={"relative"}>
                 <Image
                   src={image}
-                  w={{ base: 200, md: 500, lg: 400 }}
-                  h={{ base: 200, md: 250, lg: 300 }}
-                  alt={name}
-                  zIndex={1000}
-                />
-                <Image
-                  src={Guru1}
                   w={{ base: 200, md: 500, lg: 350 }}
                   h={{ base: 200, md: 250, lg: 300 }}
                   alt={name}
+                  loading="lazy"
+                />
+                <Image
+                  src={Guru1}
+                  w={{ base: "165px", md: "185px", lg: "210px" }}
                   pos={"absolute"}
-                  top={0}
-                  left={4}
-                  zIndex={-2}
+                  h={{ base: "190px", md: "240px", lg: "290px" }}
+                  alt={name}
+                  loading="lazy"
+                  top={2}
+                  left={8}
+                  zIndex={-1}
                 />
               </Box>
               <Flex gap={4} align={"start"} pt={5}>

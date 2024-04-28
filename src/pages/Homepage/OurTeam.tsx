@@ -4,6 +4,7 @@ import LazyLoad from "react-lazyload";
 import { SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import { useFetchTeam } from "../../api/HomeApi";
+import { BaseURL } from "../../api/axiosSetup";
 import { Slider } from "../../component/Slider";
 
 export const OurTeam = () => {
@@ -69,7 +70,7 @@ export const OurTeam = () => {
                     <Box
                       w={"full"}
                       h={250}
-                      bg={`url(http://127.0.0.1:8000${item.image}) no-repeat center center/cover`}
+                      bg={`url(${BaseURL}/${item.image}) no-repeat center center/cover`}
                     />
 
                     <Stack gap={1} mt={2} textAlign={"center"}>

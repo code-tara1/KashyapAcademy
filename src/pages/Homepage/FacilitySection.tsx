@@ -14,6 +14,7 @@ import { useState } from "react";
 
 import LazyLoad from "react-lazyload";
 import { useFetchFacility } from "../../api/HomeApi";
+import { BaseURL } from "../../api/axiosSetup";
 
 export const FacilitySection = () => {
   const [expanded, setExpanded] = useState<number | null>(0);
@@ -36,8 +37,8 @@ export const FacilitySection = () => {
                 <Flex
                   bg={
                     expanded === index
-                      ? `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.00) 71.91%, rgba(0, 0, 0, 0.33) 82.46%, #000 97.5%), url(http://127.0.0.1:8000${icon}) no-repeat top center/cover`
-                      : `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.40) 100%), url(http://127.0.0.1:8000${icon}) no-repeat top center/cover`
+                      ? `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.00) 71.91%, rgba(0, 0, 0, 0.33) 82.46%, #000 97.5%), url(${BaseURL}/${icon}) no-repeat top center/cover`
+                      : `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.40) 100%), url(${BaseURL}/${icon}) no-repeat top center/cover`
                   }
                   key={id}
                   h={"571px"}
@@ -85,7 +86,7 @@ export const FacilitySection = () => {
                   borderRadius={"5px"}
                   key={id}
                   h={200}
-                  bg={`linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.00) 71.91%, rgba(0, 0, 0, 0.33) 82.46%, #000 97.5%), url(http://127.0.0.1:8000${icon}) no-repeat top center/cover`}
+                  bg={`linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.00) 71.91%, rgba(0, 0, 0, 0.33) 82.46%, #000 97.5%), url(${BaseURL}/${icon}) no-repeat top center/cover`}
                   alignContent={"end"}
                   p={1}
                 >
